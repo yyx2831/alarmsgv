@@ -1,0 +1,19 @@
+{% extends 'alarmsg/home.html' %}
+{% block loc_detail %}
+    <table class="table table-striped" id="sum-table">
+        <thead>
+        <tr>
+            <th>严重故障</th>
+            <th>一般故障</th>
+            <th>轻微故障</th>
+        </tr>
+        </thead>
+        <tbody id="cat_alarm_table">
+        <tr>
+            <td>{{ danger_msg }}</td>
+            <td>{{ normal_msg }}</td>
+            <td>{{ light_msg }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

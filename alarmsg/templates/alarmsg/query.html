@@ -1,0 +1,61 @@
+{% extends 'alarmsg/home.html' %}
+{% block loc_detail %}
+    <div class="panel panel-back">
+        <h3>查询条件</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div>
+                <label for="id_selectLoc" class="control-label">地点</label>
+                <select id="id_selectLoc" name="selectLoc">
+                    <option selected="selected">请选择</option>
+                    {% for obj in loc_list %}
+                        <option value="{{ obj.locid }}">{{ obj.locname }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="id_selectRecent" class="control-label">时间</label>
+                <select id="id_selectRecent" name="selectRecent" id="selectRecent">
+                    <option selected="selected">请选择</option>
+                    {% for obj in rec_list %}
+                        <option value="{{ forloop.counter }}">{{ obj }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="id_selectCategory" class="control-label">等级</label>
+                <select id="id_selectCategory" name="selectCategory" id="selectCategory">
+                    <option selected="selected">请选择</option>
+                    {% for obj in cat_list %}
+                        <option value="{{ forloop.counter }}">{{ obj }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" class="btn btn-primary" id="btn_query" value="开始查询"/>
+        </div>
+    </div>
+    <div class="panel panel-back">
+        <h3>查询结果</h3>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped" id="query-table">
+                <thead>
+                <tr>
+                    <th>报警名称</th>
+                    <th>时间</th>
+                    <th>地点</th>
+                    <th>等级</th>
+                </tr>
+                </thead>
+                <tbody id="query_alarm_table">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {#    <script src="/static/alarmsg/scripts/query_start.js"></script>#}
+{% endblock %}

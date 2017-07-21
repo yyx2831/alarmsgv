@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ajax Test</title>
+    {#    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>#}
+    {#    <script type="text/javascript" language="javascript">#}
+    {#        function update(id) {#}
+    {#            $.getJSON("/msgdisp/data/" + id + "/", function (data) {#}
+    {#                $.each(data, function () {#}
+    {#                    $("#content").html('<p>'+'id='+id +' '+ this.name + ' is a ' + this.subject + ' teacher.</p>');#}
+    {#                });#}
+    {#            });#}
+    {#        }#}
+    {#        function timeDown(limit, i) {#}
+    {#            limit--;#}
+    {#            if (i > 4) {#}
+    {#                i = 0;#}
+    {#            }#}
+    {#            if (limit < 0) {#}
+    {#                limit = 3;#}
+    {#                update(i);#}
+    {#                i++;#}
+    {#            }#}
+    {#            $('#time').text(limit + '秒后刷新');#}
+    {#            setTimeout(function () {#}
+    {#                timeDown(limit, i);#}
+    {#            }, 1000)#}
+    {#        }#}
+    {##}
+    {#        $(document).ready(function () {#}
+    {#            timeDown(3, 0)#}
+    {#        })#}
+    {#    </script>#}
+</head>
+<body>
+<h1>Ajax Test</h1>
+<p id="time"></p>
+<div id="content"></div>
+<script src="/static/bootstrap/js/jquery-1.10.2.js"></script>
+<script src="/static/msgdispatch/scripts/backend_polling.js"></script>
+</body>
+</html>

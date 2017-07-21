@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+{% load staticfiles %}
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>报警信息系统</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="/static/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+    <!-- PAGE LEVEL STYLES -->
+    <link href="/static/bootstrap/css/bootstrap-fileupload.min.css" rel="stylesheet"/>
+    <!--CUSTOM BASIC STYLES-->
+    <link href="/static/bootstrap/css/basic.css" rel="stylesheet"/>
+    <!--CUSTOM MAIN STYLES-->
+    <link href="/static/bootstrap/css/custom.css" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<div class="adcenter">
+    <script src="http://www.cssmoban.com/include/new/ggad2_728x90.js"></script>
+</div>
+<div id="wrapper">
+    <style>
+        .divcss5-right {
+            float: right
+        }
+
+        .div-height {
+            height: 30px
+        }
+
+        .threed {
+            background: #EEE url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAHklEQVQImWNkYGBgYGD4//8/A5wF5SBYyAr+//8PAPOCFO0Q2zq7AAAAAElFTkSuQmCC) repeat;
+            text-shadow: 5px -5px black, 4px -4px white;
+            font-weight: bold;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text
+
+        }
+
+        .divcss5 {
+            font-size: 30px;
+        }
+
+        .ys {
+            background: #00ca79;
+            width: 260px;
+            text-align: center;
+            height: 75px;
+            font-size: 20px;
+            letter-spacing: 1px;
+            font-weight: 900;
+            padding-top: 25px;
+            text-transform: uppercase;
+        }
+
+    </style>
+
+    <nav class="navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 1000">
+        <div class="div-height">
+            <div class="divcss5-right">
+                <a href="{% url 'category' 'danger' %}" class="btn btn-danger" title="严重"><i
+                        class="fa fa-exclamation-triangle" aria-hidden="true" id="category-danger"></i></a>
+                <a href="{% url 'category' 'normal' %}" class="btn btn-warning" title="一般"><i
+                        class="fa fa-bolt" aria-hidden="true" id="category-warning"></i></a>
+                <a href="{% url 'category' 'light' %}" class="btn btn-primary" title="轻微"><i
+                        class="fa fa-exclamation-circle" aria-hidden="true" id="category-light"></i></a>
+            </div>
+            <a class="ys" href="{% url "home" %}">云南包装厂报警信息平台</a>
+        </div>
+    </nav>
+    <!-- /. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <img src="{% static 'images/bzc_logo.png' %}">
+                </li>
+                <li>
+                    <a href="{% url "home" %}"><i class="fa fa-file-text-o"></i>实时信息</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-home"></i>生产部<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{% url 'subworks' 1 %}"><i class="fa fa-circle-o"></i>一分厂</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'subworks' 2 %}"><i class="fa fa-circle-o"></i>二分厂</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'subworks' 3 %}"><i class="fa fa-circle-o"></i>三分厂</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'subworks' 4 %}"><i class="fa fa-circle-o"></i>硝铵集中溶化</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-home"></i>动力部<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{% url 'subworks' 5 %}"><i class="fa fa-circle-o"></i>锅炉房</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'subworks' 97 %}"><i class="fa fa-home"></i>文山分厂</a>
+                </li>
+                <li>
+                    <a href="{% url 'subworks' 68 %}"><i class="fa fa-home"></i>水富分厂</a>
+                </li>
+                <li>
+                    <a href="{% url 'query' %}"><i class="fa fa-file-text-o"></i>数据查询</a>
+                </li>
+                <li>
+                    <a href="{% url 'summary' %}"><i class="fa fa-area-chart" aria-hidden="true"></i>统计信息</a>
+                </li>
+                <li>
+                    <a href="{% url "setup" %}"><i class="fa fa-cog" aria-hidden="true"></i>设置</a>
+                </li>
+                <li>
+                    <a href="{% url "login" %}"><i class="fa fa-sign-in "></i>登录</a>
+                </li>
+                <li>
+                    <a href="{% url "logout" %}"><i class="fa fa-reply-all" aria-hidden="true"></i>退出</a>
+                </li>
+
+                <li>
+                    <a href="{% url "login" %}"><i class="fa fa-user" aria-hidden="true"></i>当前用户
+                        {% if request.user.is_authenticated %}{{ request.user.username }}{% endif %}</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            {% if show_cur_alm %}
+                <h3>当前报警</h3>
+                <table class="table table-striped" id="recent-table">
+                    <thead>
+                    <tr>
+                        <th>报警名称</th>
+                        <th>时间</th>
+                        <th>地点</th>
+                        <th>等级</th>
+                    </tr>
+                    </thead>
+                    <tbody id="current_alarm_table">
+
+                    </tbody>
+                </table>
+            {% endif %}
+            {% block loc_detail %}
+            {% endblock %}
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<div id="footer-sec">
+    &copy; 2017 昆明凯瑞德科技有限公司
+</div>
+<!-- /. FOOTER  -->
+
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="/static/bootstrap/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="/static/bootstrap/js/bootstrap.js"></script>
+<!-- PAGE LEVEL SCRIPTS -->
+<script src="/static/bootstrap/js/bootstrap-fileupload.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="/static/bootstrap/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+{#<script src="/static/bootstrap/js/custom.js"></script>#}
+<script src="/static/alarmsg/scripts/backend_polling.js"></script>
+{#<script> src="/static/alarmsg/scripts/query_start.js"</script>#}
+
+</body>
+</html>

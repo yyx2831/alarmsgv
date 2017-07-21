@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<h1>注册页面</h1>
+<form method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ userform.as_p }}
+    <input type="submit" value="Regist"/>
+</form>
+</body>
+</html>

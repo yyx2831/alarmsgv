@@ -1,0 +1,6 @@
+<h3>新增</h3>
+<form action="{% url 'loc_add' %}" method="post">
+    {% csrf_token %}
+    {{ loc_form.as_p }}
+    <input type="submit" class="btn btn-primary" value="提交"/>
+</form>

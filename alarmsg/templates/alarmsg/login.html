@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="/static/bootstrap/css/font-awesome.css" rel="stylesheet"/>
+    <!-- PAGE LEVEL STYLES -->
+    <link href="/static/bootstrap/css/bootstrap-fileupload.min.css" rel="stylesheet"/>
+    <!--CUSTOM BASIC STYLES-->
+    <link href="/static/bootstrap/css/basic.css" rel="stylesheet"/>
+    <!--CUSTOM MAIN STYLES-->
+    <link href="/static/bootstrap/css/custom.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>登录页面</h1>
+<form method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ userform.as_p }}
+    <input type="submit" value="Login"/>
+</form>
+</body>
+</html>

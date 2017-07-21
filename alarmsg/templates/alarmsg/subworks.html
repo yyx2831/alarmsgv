@@ -1,0 +1,24 @@
+{% extends 'alarmsg/home.html' %}
+{% block loc_detail %}
+    <h3>报警明细</h3>
+    <table class="table table-striped" id="loc-table">
+        <thead>
+        <tr>
+            <th>报警名称</th>
+            <th>时间</th>
+            <th>地点</th>
+            <th>等级</th>
+        </tr>
+        </thead>
+        <tbody id="loc_alarm_table">
+        {% for item in locmsg %}
+            <tr>
+                <td>{{ item.itemname }}</td>
+                <td>{{ item.arrtime }}</td>
+                <td>{{ item.arrloc }}</td>
+                <td>{{ item.itemvalue }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

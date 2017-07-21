@@ -1,0 +1,34 @@
+{% extends 'alarmsg/home.html' %}
+{% block loc_detail %}
+    {% ifequal cat 'danger' %}
+        <h3>严重故障明细</h3>
+    {% endifequal %}
+    {% ifequal cat 'normal' %}
+        <h3>一般故障明细</h3>
+    {% endifequal %}
+    {% ifequal cat 'light' %}
+        <h3>轻微故障明细</h3>
+    {% endifequal %}
+
+
+    <table class="table table-striped" id="cat-table">
+        <thead>
+        <tr>
+            <th>报警名称</th>
+            <th>时间</th>
+            <th>地点</th>
+            <th>等级</th>
+        </tr>
+        </thead>
+        <tbody id="cat_alarm_table">
+        {% for item in catmsg %}
+            <tr>
+                <td>{{ item.itemname }}</td>
+                <td>{{ item.arrtime }}</td>
+                <td>{{ item.arrloc }}</td>
+                <td>{{ item.itemvalue }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

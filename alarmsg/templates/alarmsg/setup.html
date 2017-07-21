@@ -1,0 +1,33 @@
+{% extends 'alarmsg/home.html' %}
+{% block loc_detail %}
+    <h3>地址编号设置 <a href="{% url "loc_add" %}"><i class="fa fa-plus-square-o"></i> 新增</a></h3>
+    <table class="table table-striped" id="loc-table">
+        <thead>
+        <tr>
+            <th>地址编号</th>
+            <th>对应地址</th>
+            <th>编辑</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody id="cat_alarm_table">
+        {% for loc in locs %}
+            <tr>
+                <td>{{ loc.locid }}</td>
+                <td>{{ loc.locname }}</td>
+                <td><a href="{% url "loc_edit"  loc.locid  %}"><i class="fa fa-edit"></i></a></td>
+                <td><a href="{% url "loc_del"  loc.locid  'c' %}"><i class="fa fa-trash-o"></i></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if show_edit %}
+        {% include 'alarmsg/loc_edit.html' %}
+    {% endif %}
+    {% if show_add %}
+        {% include 'alarmsg/loc_add.html' %}
+    {% endif %}
+    {% if show_del %}
+        {% include 'alarmsg/loc_del.html' %}
+    {% endif %}
+{% endblock %}

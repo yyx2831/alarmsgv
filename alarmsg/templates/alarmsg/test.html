@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+</head>
+<body>
+    <h1>This is a httpresponse TEST.</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>数值</th>
+            <tbody>
+                {% for line in msg %}
+                    <tr>
+                        <td>{{ line.id }}</td>
+                        <td>{{ line.itemname }}</td>
+                        <td>{{ line.itemvalue }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </thead>
+    </table>
+    <p>{{ s_msg }}</p>
+</body>
+</html>
